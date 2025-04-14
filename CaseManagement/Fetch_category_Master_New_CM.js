@@ -33,7 +33,7 @@ function fetchData(env) {
       throw new Error(errorMessage);
     }
 
-    var url = dashboardDomain + '/bots/' + botID + '/cm/category/list?child=departments&current=1&filter=%7B%22enabled%22%3Atrue%7D&perPage=10000';
+    var url = dashboardDomain + '/bots/' + botID + '/@@@@@@@/';
 
     var headers = {
       'authority': 'staging-case-management-api.leena.ai',
