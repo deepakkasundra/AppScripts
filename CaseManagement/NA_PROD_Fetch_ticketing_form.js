@@ -8,16 +8,12 @@
 	var PROD_BOTID = mainSheet.getRange(rowIndex, headersValues.indexOf('PROD BOT ID') + 1).getValue();
     var prodJwt = mainSheet.getRange(rowIndex, headersValues.indexOf('PROD JWT') + 1).getValue();
      
-//    var PROD_BOTID = mainSheet.getRange('D2').getValue();
-   // var prodJwt = mainSheet.getRange('E2').getValue();
-//    var Domain_name = 'https://case-management-api.leena.ai'
-// var Domain_name = mainSheet.getRange('H2').getValue();
 var Domain_name = mainSheet.getRange(rowIndex, headersValues.indexOf('Dashboard Domain Name') + 1).getValue();
 
 function Fetch_ticketing_Form_From_PROD() {
 // Logger.log("E2 should be" + prodJwt)
 Logger.log(PROD_BOTID);
-  var url = ''+Domain_name+'/bots/'+PROD_BOTID+'/cm/ticket-form/list?perPage=1000&current=1&select=name%2Cdepartments.name&child=departments';
+  var url = ''+Domain_name+'/@@@@@@@@/'+PROD_BOTID+'/@@@@@@@@@';
   var headers = {
     'Authorization': prodJwt,
     'x-cm-dashboard-user': 'true'
@@ -98,7 +94,7 @@ sheet.clear();
 }
 
 function getLinkForFormId_PROD(formId) {
-  var apiUrl = ''+Domain_name+'/bots/'+PROD_BOTID+'/cm/ticket-form/download-form?id=' + formId;
+  var apiUrl = ''+Domain_name+'/@@@@@/'+PROD_BOTID+'/@@@@@@@@@@@@@@@@' + formId;
   Logger.log(apiUrl)
   var headers = {
     'Authorization': prodJwt,
