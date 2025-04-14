@@ -41,11 +41,11 @@ function fetchAndStoreWebViewURLs(env) {
     }
 
     // API details
-    const url = `${dashboardDomain}/api/bots/${botID}/utils/urls`;
+    const url = `${dashboardDomain}/@@@/${botID}/`;
     const options = {
       method: 'get',
       headers: {
-        'Authorization': `JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODg5OTUyYWIxOTMwNGE1ZTdlZWEyNWYiLCJuYW1lIjoiQ2hhdHRlck9uIiwiaWF0IjoxNTU4NTk3NTI5LCJleHAiOjE1NjM3ODE1Mjl9.Lgk6d4xyuXKvvJ3_vsbLJJ2ayXEod5o_rlms8FEDhsQ`
+        'Authorization': `JWT @@@@@@@@@@@@@`
       }
     };
 
