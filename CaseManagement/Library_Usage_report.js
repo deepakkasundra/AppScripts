@@ -1,7 +1,7 @@
 function logLibraryUsage(functionName, status, errorMessage = '') {
   try {
     // Spreadsheet ID of your main sheet (the one you provided)
-    var sheetId = '1ScIX_C0g7paJlPn7AJX3_c4T67pEhraG8-e5BIbwwwI';
+    var sheetId = '@@@@@@@@@@@@@';
 
     // Open the spreadsheet and get the "LibraryUsage_report" sheet
     var spreadsheet = SpreadsheetApp.openById(sheetId);
