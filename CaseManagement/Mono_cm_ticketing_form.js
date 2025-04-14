@@ -6,8 +6,6 @@ function Fetch_ticketing_Form_Mono_CM() {
   var rowIndex = 2; // Assuming values start from row 2
 
 
-//  var MonoprodJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdjOTk1ODc3MWExMjhiOTljMjljZjEiLCJuYW1lIjoiQWtyaXRpIFBhbmR5YSIsImlhdCI6MTY3OTk4MTIzMSwiZXhwIjoxNjgxMTkwODMxLCJpc3MiOiJjb3JlIn0.eYq4IynVcW6FM6fUw2QMuuXN-AkgprcpwuzTWMxPD5M';
-
 
   // Find the index of the dynamic header name for Form IDs in the TicketingForm sheet
   var ticketingFormSheet = ss.getSheetByName('TicketingForm');
@@ -54,7 +52,7 @@ function Fetch_ticketing_Form_Mono_CM() {
     var formId = formIds[i][0];
     if (!formId) continue; // Skip if encountering an empty cell
 
-    var url = mono_domain + '/api/v1.0/bots/' + PROD_BOTID + '/tickets/settings/form-configs-file/' + formId;
+    var url = mono_domain + '/api/@@@@/' + PROD_BOTID + '/@@@@@@@@@@/' + formId;
 
     var headers = {
       'Authorization':  MonoprodJWT,
