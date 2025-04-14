@@ -116,7 +116,7 @@ function Create_ticketing_Form(isProd) {
             'x-cm-dashboard-user': 'true'
           };
 
-          var response = UrlFetchApp.fetch(dashboardDomain + '/bots/' + BOT_ID + '/cm/ticket-form/create-form-excel', {
+          var response = UrlFetchApp.fetch(dashboardDomain + '/bots/' + BOT_ID + '@@@@@@@@@@@', {
             method: 'post',
             headers: headers,
             payload: payload,
