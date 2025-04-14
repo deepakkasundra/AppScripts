@@ -27,7 +27,7 @@ function NLP_token_generate()
   }
 
   try {
-    var url = `${NLP_URL_value}/api/api/token/`;
+    var url = `${NLP_URL_value}/api/@@@@@@@@@@@@/`;
     var headers = {
       'Accept': '*/*',
       'Accept-Language': 'en-US,en;q=0.9',
