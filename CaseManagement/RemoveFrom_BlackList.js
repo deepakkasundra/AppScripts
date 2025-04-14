@@ -49,7 +49,7 @@ jwt =mainSheet.getRange(rowIndex, headersValues.indexOf('Flow chatteron JWT') + 
 
   showProgressToast(ss, 'Removing from Blacklist in ' + (isProd ? 'PROD' : 'UAT') + '...');
 
-  var url = domainname+'/api/blacklist/mail/whitelist';
+  var url = domainname+'/api/@@@@@@@@@@@@@@';
   Logger.log(url)
   Logger.log(jwt)
   var headers = {
