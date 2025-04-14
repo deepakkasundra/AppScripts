@@ -70,7 +70,7 @@ return;
 function loginAndGetToken(email, password) {
 
 
-  var loginUrl = ACL_Domain + '/api/users/login';
+  var loginUrl = ACL_Domain + '/@@@@@@@@@@@@@@@@@@';
   Logger.log(loginUrl);
   var loginHeaders = {
     'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ Logger.log(loginResponse)
 }
 
 function getActiveBot(token) {
-  var dashboardInitUrl = ACL_Domain + '/api/users/dashboard-init';
+  var dashboardInitUrl = ACL_Domain + '/@@@@@@@@@@@@@@@';
   var dashboardInitHeaders = {
     'Authorization': 'JWT ' + token,
     'Content-Type': 'application/json'
