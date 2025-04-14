@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+	    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    ol {
+      padding: 0;
+      list-style-type: decimal; /* Number the list items */
+      margin: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .menu {
+      width: 250px;
+      float: left;
+      margin-right: 20px;
+    }
+    .menu li {
+      margin-bottom: 10px;
+    }
+    .content {
+      margin-left: 270px; /* Ensure space for the menu */
+    }
+    .content div {
+      display: none; /* Hide all content sections by default */
+    }
+    .content .active {
+      display: block; /* Show the active content section */
+    }
+    .highlight {
+      font-weight: bold;
+      color: #FF5733; /* Hard color for highlighting */
+    }
+    @media (max-width: 768px) {
+      .menu {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+	 /* Fullscreen overlay style */
+    .fullscreen-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .fullscreen-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .fullscreen-overlay.active {
+      display: flex;
+    }
+/* Loader style */
+    .loader {
+      width: fit-content;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 30px;
+      color: #0000;
+      background: linear-gradient(90deg,#000 25%,#8A9B0F 0 50%,#C02942 0 75%,#00A0B0 0) 0 0/400% 100%;
+      -webkit-background-clip: text;
+              background-clip: text;
+      animation: l10 5s infinite cubic-bezier(0.3,1,0,1);
+    }
+    .loader:before {
+      content: "Loading...";
+    }
+    @keyframes l10 {
+      25% {background-position: calc(1*100%/3) 0}
+      50% {background-position: calc(2*100%/3) 0}
+      75% {background-position: calc(3*100%/3) 0}
+      100% {background-position: calc(4*100%/3) 0}
+    }
+
+    /* Loader container style */
+    .loader-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+  </style>
+  <script>
+    function showContent(contentId) {
+      var contents = document.querySelectorAll('.content > div');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+      
+      var selectedContent = document.getElementById(contentId);
+      selectedContent.classList.add('active');
+      selectedContent.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showFullScreen(imageSrc) {
+      var overlay = document.getElementById('fullscreenOverlay');
+      var overlayImage = overlay.querySelector('img');
+      overlayImage.src = imageSrc;
+      overlay.classList.add('active');
+    }
+
+    function closeFullScreen() {
+      var overlay = document.getElementById('fullscreenOverlay');
+      overlay.classList.remove('active');
+    }
+</script>
+</head>
+<body>
+<div class="loader-container" id="loaderContainer">
+    <div class="loader"></div>
+  </div>
+  <div class="container">
+    <h1>How may I help you?</h1>
+    <div class="menu">
+      <ol>
+        <li><a onclick="showContent('Overview')"><span class="highlight">Overview of Script</span></a></li>
+        <li><a onclick="showContent('settingUpConfiguration')"><span class="highlight">Setting up Configuration</span></a></li>
+        <li><a onclick="showContent('fetchDashboardData')"><span class="highlight">Fetch Dashboard Data</span></a></li>
+		    <li><a onclick="showContent('checkTicketingForm')"><span class="highlight">Check Ticketing Form</span></a></li>
+        <li><a onclick="showContent('downloadTicketingForm')"><span class="highlight">Download Ticketing Form</span></a></li>
+        <li><a onclick="showContent('separateExportedForms')"><span class="highlight">Separate Exported Forms</span></a></li>
+        <li><a onclick="showContent('ticketingFormComparison')"><span class="highlight">Ticketing Form vs Assignee Config</span></a></li>
+        <li><a onclick="showContent('assigneeConfigComparison')"><span class="highlight">Assignee Config Comparison</span></a></li>
+        <li><a onclick="showContent('separateSubCategories')"><span class="highlight">Separate Sub Categories by Semi Column</span></a></li>
+        <li><a onclick="showContent('emailTicketing')"><span class="highlight">Email Ticketing</span></a></li>
+        <li><a onclick="showContent('fetchWebviewURL')"><span class="highlight">Fetch Webview URL</span></a></li>
+        <li><a onclick="showContent('removefromblacklist')"><span class="highlight">Remove Blacklisted Email</span></a></li>
+        <li><a onclick="showContent('other')"><span class="highlight">Other</span></a></li>
+      </ol>
+    </div>
+    <div class="content">
+        <div id="Overview" class="active">
+    <!-- Overview content will be dynamically added here -->
+        </div>
+ <div id="settingUpConfiguration">
+        <h3 class="highlight">Setting up Configuration</h3>
+        <p>First steps is to set configuration to start CM verification</p>
+      <ol><li>To start CM verification, follow these instructions: </li>
+	    <li>Ensure you have selected the Region in the "Main" sheet.</li>
+      <li>Enter Dashboard Credentials in the Main sheet.</li>
+      <li>Set NLP User Name and NLP User Password for NLP triaging verification.</li>
+      </ol>
+   <a onclick="showFullScreen('https://i.postimg.cc/PqHsbrPm/Screenshot-2024-08-12-105804.png')">
+          <img src='https://i.postimg.cc/PqHsbrPm/Screenshot-2024-08-12-105804.png' border='0' alt='Screenshot' width="800" height="500" />	 </a>
+	  </div>
+      <div id="checkTicketingForm">
+        <h3 class="highlight">Validate Ticketing Forms</h3>
+        <p>This will ensure that the combination of category and sub-category is mentioned correctly in the Ticketing form.</p>
+        <p>Perform the following steps to check Ticketing forms:</p>
+        <ol>
+            <li>Generate a token to download data from the Dashboard.</li>
+            <li>Go to Fetch Dashboard data > and click on Generate Token for the respective environment.</li>
+            <li>Once the token is successfully generated, go to QA Verification Menu > Check Ticketing Form > Fetch Ticketing form i.e. UAT (New CM) or Fetch Ticketing Form from PROD (New CM).</li>
+            <li>You will get an S3 downloadable link in the "TicketingForm" sheet. (The download link will expire in 30 mins or as per configured time.)</li>
+            <li>Validate the ticketing form from Menu > QA Verification > Check Ticketing Form > Import All Forms and Validate All Forms.</li>
+            <li>Once you click the above option, it will fetch Ticketing forms data and create two sheets. One is for the original form and the second with Validation.</li>
+            <li>Validation statuses will appear in the "Ticketing form verification" sheet, and consolidated data will appear in "Exported Data from ticketing forms".</li>
+            <li>If you find the status as "Missing in Column options; It's critical," it means the Category is not mapped properly. In this case, connect with BA ASAP and raise the issue.</li>
+            <li>If you find the status as "Missing in Column dependsOnValue," it means there is no Sub Category available for the mentioned Category.</li>
+        </ol>
+      </div>
+      <div id="downloadTicketingForm">
+        <h3 class="highlight">Download Ticketing Form</h3>
+        <p>Instructions for downloading ticketing forms...</p>
+        <ol><li>Download the ticketing form from Menu > QA Verification > Download Ticketing Form > select the respective option. (Forms will be downloaded and saved where the QA sheet is stored in the respective project folder)</li>
+		<li>When ever we start testing this option help to maintain QA evidence.</li>
+		<a onclick="showFullScreen('https://i.postimg.cc/kg0M0mD4/Screenshot-2024-08-12-105018.png')">
+		<img src='https://i.postimg.cc/kg0M0mD4/Screenshot-2024-08-12-105018.png' border='0' alt='Screenshot-2024-08-12-105018' width="800" height="500" /></a>
+      </ol>
+      </div>
+      <div id="separateExportedForms">
+        <h3 class="highlight">Separate Exported Forms</h3>
+        <h3>Extract and Convert Ticketing Form Data</h3>
+        <ol><li>This activity will separate category and subcategory in a comparison format.</li>
+        <li>If you opted for "Import All Forms and Validate All Forms," no manual work is needed.</li>
+        <li>To convert data, go to QA Verification Menu > Separate Exported Data > select the available option.</li>
+        <li>Once the script completes successfully, all categories and sub-categories will be available in the "Separated Data" sheet.</li>
+        <li>Based on Extra fields, we have the Assignee matrix.</li>
+        <h3>What is the use of Extra Field here?</h3>
+        <ul>
+		<li>In CM, we can configure different Assignees based on extra parameters such as Grade, Institute, Level, Relationship, etc.</li>
+        <li>If any extra parameter is used in the Ticketing form (e.g., extraFields.{FIELDNAME}), this script helps to convert the data for comparison.</li>
+        <li><b>Use Case</b> - In the ticketing form, we have configured extraFields.Institute. Based on the Institute, there are Assignees. For example, for Institute = ABC, it will assign that ticket to Assignee A; if Institute = XYZ, it will assign to Assignee B.</li>
+      </ul>
+	  </ol>
+      </div>
+      <div id="ticketingFormComparison">
+        <h3 class="highlight">Ticketing Form vs Assignee Config</h3>
+        <h3>Comparison of Ticketing Form vs. Assignee Config</h3>
+       <ol> <li>This comparison ensures that all categories available in the Ticketing form are present in the Assignee Config.</li>
+        <li>To start verification, click on QA Verification Menu > Ticketing form (Separated Data) vs Assignee Config > Select the respective available options.</li>
+        <li>If you have extra fields based on Assignee config, select "Ticketing forms vs. {Respective sheet} with Param" or run "Ticketing forms vs. {Respective sheet} without Param."</li>
+        <li>Once the execution is complete, the report will be generated in the "Ticketing_Form_vs_{sheet_Name}_Assignee Config" sheet. Refer to the "Combination Status" column for the status.</li>
+        <h3><b>Note:</b></h3>
+        <li>There are two statuses: "Not found in Assignee config" and "Not found in Ticketing Form."</li>
+        <li>If you receive the status "Not found in Assignee config," it means the category combination is available in the ticketing form but not present in the Assignee config. This is critical and needs to be fixed ASAP; otherwise, the ticket will not be assigned to any agents.</li>
+        <li>If you receive the status "Not found in Ticketing Form," it means the category combination is available in the Assignee config but not in the Ticketing form. This may be the case when extra category combinations are added or forgotten to remove from the Assignee config.</li>
+      </ol></div>
+      <div id="assigneeConfigComparison">
+        <h3 class="highlight">Assignee Config Comparison</h3>
+        <p>Here we compare Requirement sheet with UAT assignee config.</p>
+    <ol>  <li> This comparisonensure that the configuration of assignement is as per requirement sheet that is provided by client.</li>
+	  <li> To start verification, click on QA Verification Menu > Assignee Config Comparison > Select the respective available options.</li>
+	  <li> Here we can compare complex assignee config, if in assignee config based on any extra param like Institution code, Employee Location, Employee Country etc. you can opt. out Compare Requirment vs. UAT SLA with Param. </li> 
+		<p> <b> Note :- </b> When you select Compare Requirment vs. UAT SLA with <b> Param </b> you need to maintain param in respective sheet in column "Execution Rule 1" with same sequence. </br> </p>
+		<p> If you have multiple param like Country, Location, Grade etc. you just simply add all the extra param in that column by below formula. </br>
+		Column1 = Location</br>
+		Column2 = Country</br>
+		Column3 = Grade</br>
+		<b>Formula</b> =TRIM(Column1&" "&Column2" "&Column3)</p>
+		<a onclick="showFullScreen('https://i.postimg.cc/28x4j0nr/Screenshot-2024-08-08-152534.png')">
+		<img src='https://i.postimg.cc/28x4j0nr/Screenshot-2024-08-08-152534.png' border='0' alt='Screenshot-2024-08-08-152534' width="800" height="300" /></a>
+	  </ol><br> <br>
+    <p> For Example you have below Param: </p> <br>
+    <table style="float: left;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 282px;"><strong>Execution Rule 1</strong></td>
+            <td style="width: 80.3px;"><strong>Location</strong></td>
+            <td style="width: 79.7px;"><strong>Country</strong></td>
+            <td style="width: 58px;"><strong>Grade</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 282px;">=TRIM(Column1 &amp; " " &amp; Column2 &amp; " " &amp; Column3)</td>
+            <td style="width: 80.3px;">Mumbai</td>
+            <td style="width: 79.7px;">India</td>
+            <td style="width: 58px;">L1</td>
+        </tr>
+    </tbody>
+</table>
+<br><br><br><br>
+<p>It will display the value in Execution Rule 1 as below:</p>
+
+<table style="float: left;" border="1">
+      <tbody>
+        <tr>
+            <td style="width: 282px;"><strong>Execution Rule 1</strong></td>
+            <td style="width: 80.3px;"><strong>Location</strong></td>
+            <td style="width: 79.7px;"><strong>Country</strong></td>
+            <td style="width: 58px;"><strong>Grade</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 282px;">Mumbai India L1</td>
+            <td style="width: 80.3px;">Mumbai</td>
+            <td style="width: 79.7px;">India</td>
+            <td style="width: 58px;">L1</td>
+        </tr>
+    </tbody>
+</table>
+
+    </div>
+
+      <div id="separateSubCategories">
+    <h3 class="highlight">Separate Sub Categories by Semi-Colon</h3>
+    <p>If the Sub Categories in the Assignee Config are separated by a semi-colon, you can use this option to separate them:</p>
+    <ol>
+        <li>Go to the ⚙️ QA Verification &gt; select Separate Sub Categories by Semi-Colon &gt; select the respective option.</li>
+    </ol>
+    <p>Refer to the example below: Where multiple Sub Categories are mentioned in a single cell</p>
+    <table style="float: left;" border="1">
+        <tbody>
+            <tr>
+                <td><strong>Category</strong></td>
+                <td><strong>Sub Categories</strong></td>
+                <td><strong>Assignee Email</strong></td>
+            </tr>
+            <tr>
+                <td>Payroll</td>
+                <td>Payslip; Tax Computation</td>
+                <td>hr@test.com</td>
+            </tr>
+            <tr>
+                <td>PF Account</td>
+                <td>KYC; Withdrawal; General enquiry</td>
+                <td>PF@test.com</td>
+            </tr>
+        </tbody>
+    </table>
+   <br><br><br><br><br><br> 
+    <p>This will convert data as shown below, i.e., a single Category with Sub Category combination:</p>
+    <table style="float: left;" border="1">
+        <tbody>
+            <tr>
+                <td><strong>Category</strong></td>
+                <td><strong>Sub Categories</strong></td>
+                <td><strong>Assignee Email</strong></td>
+            </tr>
+            <tr>
+                <td>Payroll</td>
+                <td>Payslip</td>
+                <td>hr@test.com</td>
+            </tr>
+            <tr>
+                <td>Payroll</td>
+                <td>Tax Computation</td>
+                <td>hr@test.com</td>
+            </tr>
+            <tr>
+                <td>PF Account</td>
+                <td>KYC</td>
+                <td>PF@test.com</td>
+            </tr>
+            <tr>
+                <td>PF Account</td>
+                <td>Withdrawal</td>
+                <td>PF@test.com</td>
+            </tr>
+            <tr>
+                <td>PF Account</td>
+                <td>General enquiry</td>
+                <td>PF@test.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+      
+      <div id="fetchDashboardData">
+        <h3 class="highlight">Fetch Dashboard Data</h3>
+		<p>This section includes steps for generating tokens and fetching data from the dashboard:</p>
+        <ol>
+          <li>Select "Generate Token" from the menu to generate a new token for API requests.</li>
+          <li>Fetch Category Master data from UAT or PROD using the appropriate menu options.</li>
+        </ol>
+      </div>
+      <div id="emailTicketing">
+        <h3 class="highlight">Email Ticketing</h3>
+		<p>Use the options in this section to manage Email Ticketing:</p>
+        <ol>
+          <li>Generate an NLP token to use in Email triaging on UAT.</li>
+          <li>Check Email triaging using the available options in the menu.</li>
+          <li>Send Emails through the automation tool.</li>
+        </ol>
+      </div>
+      <div id="fetchWebviewURL">
+        <h3 class="highlight">Fetch Webview URL</h3>
+		 <p>This allows you to fetch Webview URLs for UAT or PROD:</p>
+        <ol>
+          <li>Select the appropriate option from the menu to fetch Webview URLs for UAT or PROD.</li>
+          <li>This will provide you validation result in "WebView_URL_Verification" sheet.</li>
+          <li>If you have custom label like normally we have Raise ticket but title configured in URL as "Request Assistance", Just update that URL in "NewFormatURLs" sheet and do validation.</li>
+        </ol>
+      </div>
+      <div id="removefromblacklist">
+        <h3 class="highlight">Remove Email from Blacklist</h3>
+		<p>Sometimes, when we download the SLA file from CM, it doesn't appear in the Mail Logs, which indicates that the Email ID might be blacklisted. Using the options below, you can remove the blacklisted email by selecting the appropriate action.</p>
+        <ol>
+          <li>Remove Email From Blacklist - UAT.</li>
+           <li>Remove Email From Blacklist - PROD.</li>
+          </ol>
+      </div>
+      <div id="other">
+        <h3 class="highlight">Other</h3>
+		<p>This section contains various additional utilities:</p>
+        <ol>
+          <li>Delete Ticketing Form from Sheets that are no longer needed.</li>
+          </ol>
+      </div>
+    </div>
+      </div>
+  <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullScreen()">
+    <img src="" alt="Fullscreen Image">
+  </div>
+</body>
+</html>
