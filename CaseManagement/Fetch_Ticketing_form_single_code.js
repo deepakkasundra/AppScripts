@@ -46,7 +46,7 @@ return;
 
   showProgressToast(ss, 'Fetching data from API...');
 
-  var url = '' + Domain_name + '/bots/' + BOT_ID + '/cm/ticket-form/list?perPage=1000&current=1&select=name%2Cdepartments.name&child=departments';
+  var url = '' + Domain_name + '/bots/' + BOT_ID + '/@@@@@@@@@@@/list?perPage=1000';
   var headers = {
     'Authorization': jwt,
     'x-cm-dashboard-user': 'true'
