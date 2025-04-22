@@ -17,29 +17,6 @@ function fetchAndStoreDepartments(isProd) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   showProgressToast(ss, 'Initializing...');
 
-  // // Read configuration from the Main sheet.
-  // var mainSheet = ss.getSheetByName('Main');
-  // var headersValues = mainSheet.getRange(1, 1, 1, mainSheet.getLastColumn()).getValues()[0];
-  // var rowIndex = 2; // Values start on row 2
-
-  // // Read BOT ID and JWT based on environment selection.
-  // var BOT_ID, jwt;
-  // if (isProd) {
-  //   BOT_ID = mainSheet.getRange(rowIndex, headersValues.indexOf('PROD BOT ID') + 1).getValue();
-  //   jwt = mainSheet.getRange(rowIndex, headersValues.indexOf('PROD JWT') + 1).getValue();
-  // var sheetName = "Department List_PROD";
-  
-  // } else {
-  //   BOT_ID = mainSheet.getRange(rowIndex, headersValues.indexOf('UAT BOT ID') + 1).getValue();
-  //   jwt = mainSheet.getRange(rowIndex, headersValues.indexOf('UAT JWT') + 1).getValue();
-  // var sheetName = "Department List_UAT";
-  
-  // }
-
-// Get the Dashboard Domain Name.
-//  var Domain_name = mainSheet.getRange(rowIndex, headersValues.indexOf('Dashboard Domain Name') + 1).getValue();
-
-
   // Reuse data from getMainSheetData
   const mainData = getMainSheetData();
   var BOT_ID, jwt, Domain_name, sheetName;
@@ -71,7 +48,7 @@ function fetchAndStoreDepartments(isProd) {
   deptSheet.clear();
 
   // Construct the API URL dynamically.
-  var url = Domain_name + '/bots/' + BOT_ID + '/cm/department/list?current=1&perPage=1000&filter=%7B%22isActive%22%3Atrue%7D';
+  var url = Domain_name + '/bots/' + BOT_ID + '/@@@@@@@@@@@@@@@';
   var options = {
     method: "get",
     muteHttpExceptions: true,
