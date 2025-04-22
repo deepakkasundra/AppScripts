@@ -136,7 +136,7 @@ return new Promise((resolve, reject) => {
       'x-cm-dashboard-user': 'true'
     };
 
-    var apiUrl = dashboardDomain + '/bots/' + BOT_ID + '/cm/ticket-form/update-form-excel';
+    var apiUrl = dashboardDomain + '/@@@@@@@@@@@@@@@@@/' + BOT_ID + '/@@@@@@@@@';
     Logger.log('Sending request to ' + apiUrl);
 
     var options = {
@@ -438,7 +438,7 @@ Logger.log("Is Upload through Local "+ isLocal)
           };
           Logger.log('Defined headers for API call.');
 
-          var response = UrlFetchApp.fetch(dashboardDomain + '/bots/' + BOT_ID + '/cm/ticket-form/update-form-excel', {
+          var response = UrlFetchApp.fetch(dashboardDomain + '/@@@@@@@@@@@/' + BOT_ID + '/@@@@@@@@@@@@@@@@', {
             method: 'put',
             headers: headers,
             payload: payload,
