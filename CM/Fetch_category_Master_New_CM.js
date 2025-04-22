@@ -52,10 +52,10 @@ if (missingValues.length > 0) {
   return;
 }
 
-    var url = dashboardDomain + '/bots/' + botID + '/cm/category/list?child=departments&current=1&filter=%7B%22enabled%22%3Atrue%7D&perPage=10000';
+    var url = dashboardDomain + '/@@@@@@@/' + botID + '/@@@@@@@@@@@';
 
     var headers = {
-      'authority': 'staging-case-management-api.leena.ai',
+      'authority': '@@@@@@@@@',
       'accept': 'application/json, text/plain, */*',
       'accept-language': 'en-US,en;q=0.9',
       'authorization': jwt,
