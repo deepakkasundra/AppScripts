@@ -17,7 +17,7 @@ var Domain_name = mainSheet.getRange(rowIndex, headersValues.indexOf('Dashboard 
 function Fetch_ticketing_Form_From_PROD() {
 // Logger.log("E2 should be" + prodJwt)
 Logger.log(PROD_BOTID);
-  var url = ''+Domain_name+'/bots/'+PROD_BOTID+'/cm/ticket-form/list?perPage=1000&current=1&select=name%2Cdepartments.name&child=departments';
+  var url = ''+Domain_name+'/@@@@@@@/'+PROD_BOTID+'/@@@@@@@@@@@@@@@@@@@@@@';
   var headers = {
     'Authorization': prodJwt,
     'x-cm-dashboard-user': 'true'
@@ -98,7 +98,7 @@ sheet.clear();
 }
 
 function getLinkForFormId_PROD(formId) {
-  var apiUrl = ''+Domain_name+'/bots/'+PROD_BOTID+'/cm/ticket-form/download-form?id=' + formId;
+  var apiUrl = ''+Domain_name+'/@@@@@@@@@@@/'+PROD_BOTID+'/@@@@@@@@@' + formId;
   Logger.log(apiUrl)
   var headers = {
     'Authorization': prodJwt,
