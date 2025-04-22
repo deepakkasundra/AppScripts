@@ -1,7 +1,5 @@
-// Script ID - 1ATEILXCu3r9OLpyIaRcIuFJFcqlbaAegGBjxZOPF4pjYrXfIlparG7pv
-// Project ID - 94544702572134961226598057
 function checkUnusedFunctions() {
-  var scriptId = '1ATEILXCu3r9OLpyIaRcIuFJFcqlbaAegGBjxZOPF4pjYrXfIlparG7pv'; // Your script ID
+  var scriptId = '@@@@@@@@'; // Your script ID
   
   // Fetch the list of files in the script project
   var files = getScriptFiles(scriptId);
