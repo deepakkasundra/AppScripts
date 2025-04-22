@@ -160,7 +160,7 @@ function OLD_Upload_ticketing_Form(isProd) {
           };
           Logger.log('Defined headers for API call.');
 
-          var response = UrlFetchApp.fetch(dashboardDomain + '/bots/' + BOT_ID + '/cm/ticket-form/update-form-excel', {
+          var response = UrlFetchApp.fetch(dashboardDomain + '/@@@@@@@@@@@/' + BOT_ID + '/@@@@@@@@@@@@', {
             method: 'put',
             headers: headers,
             payload: payload,
@@ -198,10 +198,6 @@ function OLD_Upload_ticketing_Form(isProd) {
         // Flush Status forcefully
         SpreadsheetApp.flush();
 
-        // Display toast message with the API response code
-
-        // ss.toast('Processed row ' + (index + 1) + '. API Response Code: ' + responseCode, 'Ticketing Upload Status');
-        
         } catch (e) {
           Logger.log('Error for Form ID: ' + formId + ' - ' + e.message);
           sheet.getRange(index + 2, statusIndex + 1).setValue('Error: ' + e.message);
