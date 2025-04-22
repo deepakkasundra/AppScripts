@@ -74,7 +74,7 @@ var ss = SpreadsheetApp.getActiveSpreadsheet();
 
   showProgressToast(ss, 'Removing from Blacklist in ' + (isProd ? 'PROD' : 'UAT') + '...');
 
-  var url = domainname+'/api/blacklist/mail/whitelist';
+  var url = domainname+'/@@@@@@@@@@@@@@@';
   Logger.log(url)
   Logger.log(jwt)
   var headers = {
