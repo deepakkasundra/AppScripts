@@ -7,7 +7,6 @@ function MONO_fetchTicketingFormDataAndUrls_UAT() {
 }
 
 function MONO_fetchFormDataAndUrls(environment) {
-  // var EnvJWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjlkYWRmYmEwZjY2YTRjMWExN2YxYjQiLCJuYW1lIjoiRGVlcGFrIFAgS2FzdW5kcmEiLCJpYXQiOjE3MjM2MDk1OTIsImV4cCI6MTcyNDgxOTE5MiwiaXNzIjoiY29yZSJ9.JeHsf15aWVgMjRsNK_01vxq3-ceTlVs5jpGJBCLTscw';
 
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var mainSheet = ss.getSheetByName('Main');
@@ -39,7 +38,7 @@ function MONO_fetchFormDataAndUrls(environment) {
     return;
   }
 
-  var apiUrl = mono_domain + '/api/v1.0/bots/' + BOTID + '/tickets/settings/form-configs';
+  var apiUrl = mono_domain + '/@@@@@@@@@@@@@@/' + BOTID + '/@@@@@@@@@';
   Logger.log(apiUrl);
 
   // Authorization header
@@ -101,7 +100,7 @@ function MONO_fetchFormDataAndUrls(environment) {
       var formId = formIds[i][0];
       if (!formId) continue; // Skip if encountering an empty cell
 
-      var url = mono_domain + '/api/v1.0/bots/' + BOTID + '/tickets/settings/form-configs-file/' + formId;
+      var url = mono_domain + '/@@@@@@@/' + BOTID + '/@@@@@@@@/' + formId;
 
       var headers = {
         'Authorization': EnvJWT,
