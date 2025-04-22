@@ -154,7 +154,7 @@ triagingSheet.getRange(2, responseCategory1Index, triagingSheet.getLastRow() - 1
         continue;
       }
 
-      var url = `${NLP_URL}/api/triaging/${BOTID}/tryItNow/`;
+      var url = `${NLP_URL}/@@@@@@@@/${BOTID}/@@@@@@@@/`;
       var headers = {
         'Accept': '*/*',
         'Accept-Language': 'en-US,en;q=0.9',

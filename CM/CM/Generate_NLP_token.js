@@ -11,7 +11,7 @@ function NLP_token_generate()
   var nlp_user_name_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP User Name') + 1).getValue();
   var nlp_user_Pass_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP User Password') + 1).getValue();
   var NLP_URL_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP Dashboard') + 1).getValue();
-  var NLP_Cookie = '_hjSessionUser_1833382=eyJpZCI6IjIyN2NjZmE2LTU4MTQtNTJiMi1iN2U5LTRhODY2YTY3NDVlYyIsImNyZWF0ZWQiOjE3MDk2MzUyMjA3NDUsImV4aXN0aW5nIjpmYWxzZX0=; _ga_M2WT0F1L9X=GS1.2.1712125711.6.0.1712125711.0.0.0; _ga_Q3BMFK63KP=GS1.1.1712231486.1.1.1712231492.54.0.0; _ga=GA1.2.1642660822.1708922175; _gid=GA1.2.2008331391.1712293435; _ga_JVKNZJZKB2=GS1.2.1712293435.10.0.1712293435.0.0.0; crisp-client%2Fsession%2F975cc09a-159b-4c0b-a4bc-a03efbdb5f26=session_8bc1d92a-e57a-4643-b033-ad85050408e7; _nt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMjk5Njk0LCJpYXQiOjE3MTIyOTc4OTQsImp0aSI6IjY5NTNhZmUzZTFjYjQ4ZmZhNDExMDg5OWY0ZWE3MTEyIiwidXNlcl9pZCI6MTQ3fQ.8LT_uq5j35e38-jmOFjXRtJwlOS49zVQkCIIH_XI2SQ';
+  var NLP_Cookie = '#########################';
 
   Logger.log(nlp_user_name_value + " & " + nlp_user_Pass_value);
 
@@ -27,7 +27,7 @@ function NLP_token_generate()
   }
 
   try {
-    var url = `${NLP_URL_value}/api/api/token/`;
+    var url = `${NLP_URL_value}/api/@@@@@@@@@@@@/`;
     var headers = {
       'Accept': '*/*',
       'Accept-Language': 'en-US,en;q=0.9',

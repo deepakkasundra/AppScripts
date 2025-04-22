@@ -68,25 +68,6 @@ SpreadsheetApp.getActiveSpreadsheet().toast('Loading QA Verification and Dev Too
 		  .addItem('B. 🚨 Fetch Category Master from PROD (New CM)', LibraryName+'fetch_Category_FromProd')  
 	   )
 
-			 .addSubMenu(ui.createMenu('Fetch Department Details')
-	   .addItem('A. Fetch Department Details from UAT (New CM)', LibraryName+'fetchDepartmentsFromUAT')
-		  .addItem('B. 🚨 Fetch Department Details from PROD (New CM)', LibraryName+'fetchDepartmentsFromPROD')   )
-
-
-	 .addSubMenu(ui.createMenu('Fetch TicketSchema Details')
-	   .addItem('A. Fetch TicketSchema from UAT (New CM)', LibraryName+'fetchTicketSchemaFromUAT')
-		  .addItem('B. 🚨 Fetch TicketSchema from PROD (New CM)', LibraryName+'fetchTicketSchemaFromPROD')   )
-
-		 .addSubMenu(ui.createMenu('Fetch Email Configuration')
-	   .addItem('A. Fetch Email Config from UAT (New CM)', LibraryName+'fetchEmailConfigurationFromUAT')
-		  .addItem('B. 🚨 Fetch Email Config from PROD (New CM)', LibraryName+'fetchEmailConfigurationFromPROD')   )
-
-		 .addSubMenu(ui.createMenu('Fetch Email Rules')
-	   .addItem('A. Fetch Email Automation rules from UAT (New CM)', LibraryName+'fetchEmailAutomationFromUAT')
-		  .addItem('B. 🚨 Fetch Email Automation rules from PROD (New CM)', LibraryName+'fetchEmailAutomationFromPROD')   )
-
-
-
 			 .addSubMenu(ui.createMenu('Category Master verification')  
 	  	  .addItem('A) Seprated data Vs. UAT Category Master (New CM)', LibraryName+'compareWithUAT')
 		  .addItem('B) Seprated data Vs. PROD Category Master (New CM)', LibraryName+'compareWithPROD')

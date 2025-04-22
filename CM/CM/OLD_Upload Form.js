@@ -160,7 +160,7 @@ function OLD_Upload_ticketing_Form(isProd) {
           };
           Logger.log('Defined headers for API call.');
 
-          var response = UrlFetchApp.fetch(dashboardDomain + '/bots/' + BOT_ID + '/cm/ticket-form/update-form-excel', {
+          var response = UrlFetchApp.fetch(dashboardDomain + '/@@@@@@@/' + BOT_ID + '/@@@@@@@@@', {
             method: 'put',
             headers: headers,
             payload: payload,

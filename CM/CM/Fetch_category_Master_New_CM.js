@@ -9,50 +9,31 @@ function fetch_Category_FromUat() {
 function fetchData(env) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    // var mainSheet = ss.getSheetByName('Main');
-    // var headersRange = mainSheet.getRange(1, 1, 1, mainSheet.getLastColumn());
-    // var headersValues = headersRange.getValues()[0];
-    // var rowIndex = 2;
+    var mainSheet = ss.getSheetByName('Main');
+    var headersRange = mainSheet.getRange(1, 1, 1, mainSheet.getLastColumn());
+    var headersValues = headersRange.getValues()[0];
+    var rowIndex = 2;
 
-    // var botID = mainSheet.getRange(rowIndex, headersValues.indexOf(env + ' BOT ID') + 1).getValue();
-    // var jwt = mainSheet.getRange(rowIndex, headersValues.indexOf(env + ' JWT') + 1).getValue();
-    // var dashboardDomain = mainSheet.getRange(rowIndex, headersValues.indexOf('Dashboard Domain Name') + 1).getValue();
+    var botID = mainSheet.getRange(rowIndex, headersValues.indexOf(env + ' BOT ID') + 1).getValue();
+    var jwt = mainSheet.getRange(rowIndex, headersValues.indexOf(env + ' JWT') + 1).getValue();
+    var dashboardDomain = mainSheet.getRange(rowIndex, headersValues.indexOf('Dashboard Domain Name') + 1).getValue();
 
+    var missingColumns = [];
 
-    // Get the main sheet data using the getMainSheetData() function
-    const { 
-      mainSheet,prodBotId, prodJwt, uatBotId, uatJwt,  domainname 
-    } = getMainSheetData();
+    if (!botID) {
+      missingColumns.push(env + ' BOT ID');
+    }
 
-    // Retrieve the necessary details for the specified environment (PROD/UAT)
-    var botID = env === 'PROD' ? prodBotId : uatBotId;
-    var jwt = env === 'PROD' ? prodJwt : uatJwt;
-    var dashboardDomain = domainname; // Using the common dashboard domain
+    if (!dashboardDomain) {
+      missingColumns.push('Dashboard Domain Name');
+    }
 
+    if (missingColumns.length > 0) {
+      var errorMessage = "Error: " + missingColumns.join(" and ") + " is missing in " + mainSheet.getName() + " Sheet";
+      throw new Error(errorMessage);
+    }
 
-var missingValues = [];
-
-if (!botID) {
-  missingValues.push(env + ' BOT ID value');
-}
-
-if (!dashboardDomain) {
-  missingValues.push('Dashboard Domain Name value');
-}
-
-if (missingValues.length > 0) {
-  var errorMessage = "Error: " + missingValues.join(" and ") + " is missing or invalid in the 'Main' Sheet";
-  Logger.log(errorMessage); // Log the error message for further inspection
-
-  // Show pop-up message in the UI
-  const ui = SpreadsheetApp.getUi();
-  ui.alert('⚠️ Missing or Invalid Data', errorMessage, ui.ButtonSet.OK);
-
-  // Stop further execution by throwing an error
-  return;
-}
-
-    var url = dashboardDomain + '/bots/' + botID + '/cm/category/list?child=departments&current=1&filter=%7B%22enabled%22%3Atrue%7D&perPage=10000';
+    var url = dashboardDomain + '/bots/' + botID + '/@@@@@@@/';
 
     var headers = {
       'authority': 'staging-case-management-api.leena.ai',

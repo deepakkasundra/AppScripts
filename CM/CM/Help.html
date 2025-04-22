@@ -156,7 +156,7 @@
         <li><a onclick="showContent('Overview')"><span class="highlight">Overview of Script</span></a></li>
         <li><a onclick="showContent('settingUpConfiguration')"><span class="highlight">Setting up Configuration</span></a></li>
         <li><a onclick="showContent('fetchDashboardData')"><span class="highlight">Fetch Dashboard Data</span></a></li>
-		<li><a onclick="showContent('checkTicketingForm')"><span class="highlight">Check Ticketing Form</span></a></li>
+		    <li><a onclick="showContent('checkTicketingForm')"><span class="highlight">Check Ticketing Form</span></a></li>
         <li><a onclick="showContent('downloadTicketingForm')"><span class="highlight">Download Ticketing Form</span></a></li>
         <li><a onclick="showContent('separateExportedForms')"><span class="highlight">Separate Exported Forms</span></a></li>
         <li><a onclick="showContent('ticketingFormComparison')"><span class="highlight">Ticketing Form vs Assignee Config</span></a></li>
@@ -164,8 +164,6 @@
         <li><a onclick="showContent('separateSubCategories')"><span class="highlight">Separate Sub Categories by Semi Column</span></a></li>
         <li><a onclick="showContent('emailTicketing')"><span class="highlight">Email Ticketing</span></a></li>
         <li><a onclick="showContent('fetchWebviewURL')"><span class="highlight">Fetch Webview URL</span></a></li>
-        <li><a onclick="showContent('fetchDepartment')"><span class="highlight">Fetch Department Details</span></a></li>
-        <li><a onclick="showContent('fetchticketschema')"><span class="highlight">Fetch TicketSchema Details</span></a></li>
         <li><a onclick="showContent('removefromblacklist')"><span class="highlight">Remove Blacklisted Email</span></a></li>
         <li><a onclick="showContent('other')"><span class="highlight">Other</span></a></li>
       </ol>
@@ -383,25 +381,6 @@
           <li>If you have custom label like normally we have Raise ticket but title configured in URL as "Request Assistance", Just update that URL in "NewFormatURLs" sheet and do validation.</li>
         </ol>
       </div>
-<div id="fetchDepartment">
-    <h3 class="highlight">Fetch Department Details</h3>
-    <p>Use this option to retrieve Department Details for UAT or PROD:</p>
-    <ol>
-        <li>Select the desired option from the menu to fetch Department Details for UAT or PROD.</li>
-        <li>The details will be available in the "Department List" sheet.</li>
-        <li>This helps in verifying BE configurations that are not visible in the UI, such as Working Hours.</li>
-    </ol>
-</div>
-<div id="fetchticketschema">
-    <h3 class="highlight">Fetch TicketSchema Details</h3>
-    <p>Use this option to retrieve TicketSchema Details for UAT or PROD:</p>
-    <ol>
-        <li>Select the desired option from the menu to fetch Department Details for UAT or PROD.</li>
-        <li>The details will be available in the "Ticketschema List_[Env]" sheet.</li>
-        <li>This helps in verifying BE configurations that are not visible in the UI, such as Working Hours.</li>
-    </ol>
-</div>
-
       <div id="removefromblacklist">
         <h3 class="highlight">Remove Email from Blacklist</h3>
 		<p>Sometimes, when we download the SLA file from CM, it doesn't appear in the Mail Logs, which indicates that the Email ID might be blacklisted. Using the options below, you can remove the blacklisted email by selecting the appropriate action.</p>
