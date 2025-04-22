@@ -69,7 +69,7 @@ function loginAndStoreToken() {
 
 
 function loginAndGetToken(email, password, ACL_Domain) {
-  const loginUrl = ACL_Domain + '/api/users/login';
+  const loginUrl = ACL_Domain + '/@@@@@@@@@@@';
   Logger.log(`🔐 Logging in: ${email}`);
 
   const loginResponse = UrlFetchApp.fetch(loginUrl, {
@@ -88,7 +88,7 @@ function loginAndGetToken(email, password, ACL_Domain) {
 }
 
 function getActiveBot(token, ACL_Domain) {
-  const url = ACL_Domain + '/api/users/dashboard-init';
+  const url = ACL_Domain + '/@@@@@@@@@@';
   const response = UrlFetchApp.fetch(url, {
     method: 'post',
     headers: {
