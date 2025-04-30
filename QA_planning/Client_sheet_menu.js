@@ -2,7 +2,7 @@ function on_open_client() {
 try {
 
     var LibraryName = "Final_GPT_QA_Report.";  
-    var Client_templateId = "18NiMwzrqhZ-oW4ka7v-VDqhaQw21sSm5Zo3hzf9GcME"; 
+    var Client_templateId = "@@@@@@"; 
     
     
     var ui = SpreadsheetApp.getUi();
