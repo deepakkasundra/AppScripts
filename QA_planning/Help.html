@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Styling for the left-side menu */
+    .menu {
+      width: 250px; /* Fixed width for the menu */
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0; /* Prevent shrinking */
+    }
+
+    .menu h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ecf0f1;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      display: block;
+      background-color: #34495e;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+      background-color: #1abc9c;
+    }
+
+    /* Styling for the content area */
+    .content {
+      flex-grow: 1;
+      background-color: #f4f4f4;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    /* Hide all topics initially */
+    .topic {
+      display: none;
+    }
+
+    /* Show the overview by default */
+    .overview {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function showTopic(topic) {
+      // Hide all topics
+      var topics = document.querySelectorAll('.topic');
+      for (var i = 0; i < topics.length; i++) {
+        topics[i].style.display = 'none';
+      }
+
+      // Hide the overview when a topic is selected
+      document.getElementById('overview').style.display = 'none';
+
+      // Show the selected topic
+      var selectedTopic = document.getElementById(topic);
+      selectedTopic.style.display = 'block';
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Left-side Menu -->
+  <div class="menu">
+    <h1>Help Menu</h1>
+    <a href="javascript:void(0);" onclick="showTopic('topic1')">Validate Policy Name</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic2')">Create Policy Sheets</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic3')">Generate Policy Hyperlinks</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic4')">Update Formula</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic5')">Generate Cycle-wise Report</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic6')">Import Executed Data</a>
+    <a href="javascript:void(0);" onclick="showTopic('topic7')">Consolidate Data</a>
+    <!-- Add more topics here if needed -->
+  </div>
+
+  <!-- Right-side Content Area -->
+  <div class="content">
+    <!-- Overview section visible by default -->
+    <div id="overview" class="overview">
+      <h2>Welcome to the Help Menu</h2>
+      <p>Please select a topic from the menu on the left to view detailed instructions and guidelines.</p>
+      <p>This help menu provides information on:</p>
+      <ul>
+        <li>Validating policy names</li>
+        <li>Creating and managing policy sheets</li>
+        <li>Generating policy hyperlinks</li>
+        <li>Updating formulas dynamically</li>
+        <li>Generating cycle-wise QA reports</li>
+        <li>Importing executed data into the policy sheets</li>
+        <li>Consolidating data from multiple sheets</li>
+      </ul>
+    </div>
+
+    <div class="topic" id="topic1">
+      <h2>Validate Policy Name</h2>
+      <p>1. Google Sheet names cannot contain more than 100 characters; this option verifies the length of the policy name.</p>
+      <p>2. It checks if there are duplicate policy names.</p>
+      <p>3. Reduces errors while creating policy name sheets.</p>
+    </div>
+
+    <div class="topic" id="topic2">
+      <h2>Create Policy Sheets</h2>
+      <p>1. Under the Policy Details menu, select "Create Policy Sheets" after validating the policy name.</p>
+      <p>2. This creates policy-specific sheets and adds default templates to them.</p>
+    </div>
+
+    <div class="topic" id="topic3">
+      <h2>Generate Hyperlink for Policy Sheets</h2>
+      <p>1. After creating a sheet, go to the Policy Details menu and select "Generate Policy Hyperlink".</p>
+      <p>2. This generates links for easy access to the respective sheets.</p>
+    </div>
+
+    <div class="topic" id="topic4">
+      <h2>Update Formula</h2>
+      <p>1. Under the Policy Details Menu, select "Update Formula".</p>
+      <p>2. It dynamically searches for column names and updates the formulas accordingly.</p>
+      <p>3. After updating, drag the formula down or copy and paste it to the rest of the sheet.</p>
+      <p>4. You can run this option multiple times to ensure accuracy.</p>
+      <p>5. Dynamically adds new columns wherever necessary.</p>
+    </div>
+
+    <div class="topic" id="topic5">
+      <h2>Generate Cycle-wise QA Report</h2>
+      <p>1. Under the QA Report Menu, select "Update QA Cycle Wise Report".</p>
+      <p>2. Once the first QA cycle is complete, click this option to generate the report in the "QA_Cycle_Wise_Report" sheet.</p>
+      <p>3. The report will be based on the latest data available in the QA_Report sheet.</p>
+      <p>4. It's recommended to generate cycle-wise QA reports regularly.</p>
+    </div>
+
+    <div class="topic" id="topic6">
+      <h2>Import Executed Data</h2>
+      <p><b>Note:</b> This option clears the current data in the Policy Name sheet and replaces it with new data from the Execution Sheet.</p>
+      <p>1. If the execution sheet contains multiple test cases, this option imports them into the respective policy sheets.</p>
+      <p>2. Go to File > Import > Upload tab > Browse and select the desired file to import.</p>
+      <p>3. Choose "Insert New Sheet(s)" from the Import Location dropdown and click "Import Data".</p>
+      <p>4. Rename the newly created sheet to "Execution" and click "Import Executed Data" from the Utility Menu.</p>
+      <p>5. Check the import status in the Execution sheet's last column.</p>
+    </div>
+
+    <div class="topic" id="topic7">
+      <h2>Consolidate Data</h2>
+      <p>The "Consolidate Data" Option available under "QA Report". Which helps consolidates data from multiple sheets dynamically. It merges data from each policy sheet into a single “Consolidated Data”.</p>
+      <p><strong>Key Features</strong></p>
+      <ul>
+        <li><strong>Dynamic Header Mapping:</strong> Maps headers from a template sheet ("Test Cases Format") and ignores blanks or headers labeled "Go to Main Page."</li>
+        <li><strong>Automatic Sheet Handling:</strong> Creates "Consolidated Data" if missing, or prompts the user to clear it if it exists.</li>
+        <li><strong>Column Mapping & Data Extraction:</strong> Matches headers from each policy sheet with the template. Missing headers are flagged as “Header not found.”</li>
+        <li><strong>Data Consolidation:</strong> Appends each policy's data into "Consolidated Data," prefixed by the policy name.</li>
+        <li><strong>Conditional Formatting:</strong> Highlights cells labeled “Header not found” with a light red background, refreshing any existing formats.</li>
+      </ul>
+      <p><strong>Usage Instructions:</strong></p>
+      <ol>
+        <li>Ensure "QA_Report" and "Test Cases Format" sheets are present as they provide policy names and header templates.</li>
+        <li>If prompted to clear "Consolidated Data," verify its contents and proceed.</li>
+      </ol>
+      <p>This feature enhances data reporting, analysis, and validation processes.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
