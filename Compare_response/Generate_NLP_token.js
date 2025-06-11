@@ -1,5 +1,6 @@
 function NLP_token_generate() 
 {
+try{
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 
   // Find the NLP Token column dynamically
@@ -11,7 +12,7 @@ function NLP_token_generate()
   var nlp_user_name_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP User Name') + 1).getValue();
   var nlp_user_Pass_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP User Password') + 1).getValue();
   var NLP_URL_value = sheet.getRange(rowIndex, headersValues.indexOf('NLP Dashboard') + 1).getValue();
- 
+
   Logger.log(nlp_user_name_value + " & " + nlp_user_Pass_value);
 
   if (NLP_URL_value === "#N/A" || NLP_URL_value === "" || nlp_user_name_value === "" || nlp_user_Pass_value === "") {
@@ -26,13 +27,18 @@ function NLP_token_generate()
   }
 
   try {
-Domain Domain = `${Domain}/<REDACTED_PATH>/
+
+const endpoints = getApiEndpoints();
+const url = NLP_URL_value + getValidatedEndpoint(endpoints,'Generate NLP Token'); 
+
+
+//    var url = `${NLP_URL_value}/api/api/token/`;
+  Logger.log(url);
     var headers = {
       'Accept': '*/*',
       'Accept-Language': 'en-US,en;q=0.9',
       'Connection': 'keep-alive',
       'Content-Type': 'application/json',
-      // 'Cookie': `${NLP_Cookie}/`, // Replace with actual cookie value if needed
       'Origin': `${NLP_URL_value}/`,
       'Referer': `${NLP_URL_value}/`,
       'Sec-Fetch-Dest': 'empty',
@@ -70,6 +76,7 @@ Domain Domain = `${Domain}/<REDACTED_PATH>/
     var updated = false;
     
     Logger.log("Updating token in column index: " + nlpTokenColumnIndex + " and last row: " + lastRow);
+  logLibraryUsage('Generate NLP Token', 'Pass');  // Log NLP Pass
     
     for (var i = 0; i < values.length; i++) {
       if (values[i][0] === "") {
@@ -112,11 +119,18 @@ Domain Domain = `${Domain}/<REDACTED_PATH>/
 handleError(error);
     Logger.log('Error loading file data: ' + error.message);  // Log error message
 
-  
+      // errorMessage += 'Detail: ' + error.message;
+  logLibraryUsage('Generate NLP Token', 'Fail', error.toString());  // Log  failure
+
     }
 
 //    Browser.msgBox(errorMessage, Browser.Buttons.OK);
     Logger.log("An error occurred: " + error);
   }
+}
+catch(error)
+{
+  handleError(error);
+}
 }
 
