@@ -32,7 +32,6 @@ const endpoints = getApiEndpoints();
 const url = NLP_URL_value + getValidatedEndpoint(endpoints,'Generate NLP Token'); 
 
 
-//    var url = `${NLP_URL_value}/api/api/token/`;
   Logger.log(url);
     var headers = {
       'Accept': '*/*',
