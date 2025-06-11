@@ -1,19 +1,19 @@
 /**
  * Entry points for UAT and PROD environments.
  */
-function fetchDepartmentsFromUAT() {
-  fetchAndStoreDepartments(false);
+function fetchGroupsFromUAT() {
+  fetchAndStoreGroups(false);
 }
 
-function fetchDepartmentsFromPROD() {
-  fetchAndStoreDepartments(true);
+function fetchGroupsFromPROD() {
+  fetchAndStoreGroups(true);
 }
 
 /**
- * Fetches department details based on the selected environment and stores them in the "Department Details" sheet.
+ * Fetches Groups details based on the selected environment and stores them in the "Groups Details" sheet.
  * @param {Boolean} isProd - Pass true for PROD, false for UAT.
  */
-function fetchAndStoreDepartments(isProd) {
+function fetchAndStoreGroups(isProd) {
 
   try {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -27,12 +27,12 @@ function fetchAndStoreDepartments(isProd) {
     BOT_ID = mainData.prodBotId;
     jwt = mainData.prodJwt;
     Domain_name = mainData.domainname;
-    sheetName = "Department List_PROD";
+    sheetName = "Group_PROD";
   } else {
     BOT_ID = mainData.uatBotId;
     jwt = mainData.uatJwt;
     Domain_name = mainData.domainname;
-    sheetName = "Department List_UAT";
+    sheetName = "Group_UAT";
   }
 
   
@@ -43,15 +43,15 @@ function fetchAndStoreDepartments(isProd) {
     return;
   }
 
-  showProgressToast(ss, 'Clearing Department Details sheet...');
+  showProgressToast(ss, 'Clearing Groups Details sheet...');
   
-  // Get or create the "Department Details" sheet and clear previous data.
+  // Get or create the "Groups Details" sheet and clear previous data.
   var deptSheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
   deptSheet.clear();
 
 
   const endpoints = getApiEndpoints();
-Domain Domain = Domain + '/<REDACTED_PATH>/' + Domain + Domain(Domain,'Domain Domain Domain');
+Domain Domain = Domain + '/<REDACTED_PATH>/' + Domain + Domain(Domain,'Domain');
 
   Logger.log(url);
   var options = {
@@ -85,45 +85,23 @@ Domain Domain = Domain + '/<REDACTED_PATH>/' + Domain + Domain(Domain,'Domain Do
       return;
     }
 
-    var departments = data.data;
-    if (departments.length === 0) {
-      Logger.log("No department data found.");
-      SpreadsheetApp.getUi().alert("No department data found.");
+    var Groupss = data.data;
+    if (Groupss.length === 0) {
+      Logger.log("No Groups data found.");
+      SpreadsheetApp.getUi().alert("No Groups data found.");
       return;
     }
 
-// Dynamically extract all headers from all objects.
-// var headersSet = new Set();
-// departments.forEach(dep => {
-//   Object.keys(dep).forEach(key => headersSet.add(key));
-// });
-// var headers = Array.from(headersSet);
-
-// deptSheet.appendRow(headers);
-
-
-//   // Map the TicketSchema data into rows.
-// var rows = departments.map(function(dep) {
-//   return headers.map(function(h) {
-//     var val = dep[h];
-//     if (val === null || val === undefined) return "";
-//     if (typeof val === "object") return JSON.stringify(val); // stringify arrays/objects
-//     return val;
-//   });
-// });
-
-
-
-extractJSONAndAppendHeaders(departments, deptSheet);
+extractJSONAndAppendHeaders(Groupss, deptSheet);
 
 
 //    deptSheet.getRange(2, 1, rows.length, headers.length).setValues(rows);
 
-    Logger.log("Department details fetched and stored successfully.");
-    showProgressToast(ss, 'Department details fetched successfully.');
+    Logger.log("Groups details fetched and stored successfully.");
+    showProgressToast(ss, 'Groups details fetched successfully.');
   } catch (error) {
-    Logger.log("Error fetching department details: " + error.toString());
-    SpreadsheetApp.getUi().alert("Error fetching department details: " + error.toString());
+    Logger.log("Error fetching Groups details: " + error.toString());
+    SpreadsheetApp.getUi().alert("Error fetching Groups details: " + error.toString());
     handleError(error);
 
   }

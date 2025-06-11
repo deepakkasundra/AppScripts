@@ -85,6 +85,23 @@ SpreadsheetApp.getActiveSpreadsheet().toast('Loading QA Verification and Dev Too
 	   .addItem('A. Fetch Email Automation rules from UAT (New CM)', LibraryName+'fetchEmailAutomationFromUAT')
 		  .addItem('B. 🚨 Fetch Email Automation rules from PROD (New CM)', LibraryName+'fetchEmailAutomationFromPROD')   )
 
+// fetchGroupsFromUAT
+
+		 .addSubMenu(ui.createMenu('Fetch Group')
+	   .addItem('A. Fetch Group from UAT (New CM)', LibraryName+'fetchGroupsFromUAT')
+		  .addItem('B. 🚨 Fetch Group from PROD (New CM)', LibraryName+'fetchGroupsFromPROD')   )
+
+
+	 .addSubMenu(ui.createMenu('Fetch Dashboard User')
+	   .addItem('A. Fetch Dashboard Users from UAT (New CM)', LibraryName+'fetchUsersFromUAT')
+		  .addItem('B. 🚨 Fetch Dashboard Users from PROD (New CM)', LibraryName+'fetchUsersFromPROD')   )
+
+
+// compareGroupVsACLUsersPROD
+	 .addSubMenu(ui.createMenu('Compare Group Member vs Dashboard User')
+	   .addItem('A. Compare Group vs Dashboard User UAT (New CM)', LibraryName+'compareGroupVsACLUsersUAT')
+		  .addItem('B. 🚨 Compare Group vs Dashboard User PROD (New CM)', LibraryName+'compareGroupVsACLUsersPROD')   )
+
 
 
 			 .addSubMenu(ui.createMenu('Category Master verification')  
@@ -112,7 +129,8 @@ SpreadsheetApp.getActiveSpreadsheet().toast('Loading QA Verification and Dev Too
 				.addItem('Bulk Replacement in Provided folder URL',LibraryName+'replaceMultipleValuesInXLSX')
         .addItem('Conditional Replacement', LibraryName+'Conditional_replaceMultipleValuesInXLSX')
         .addItem('Open JSON to CSV Converter', LibraryName+'openJsonToCsvDialog')
-	   )
+        .addItem('SLA Calculate',LibraryName+'calculateAndWriteFormattedSLAsWithLog')
+     )
 		 // .addSubMenu(ui.createMenu('📚Help')
 				.addItem('📚Help', LibraryName+'showHelpDialog')
         // )

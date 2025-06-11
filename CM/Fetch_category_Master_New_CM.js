@@ -49,7 +49,6 @@ Domain Domain = Domain + '/<REDACTED_PATH>/' + Domain  + Domain(Domain, 'Domain 
 // https://us-east-1-case-management-api.leena.ai/bots/65e86d6697359e1a7d15b81e/cm/department/list?current=1&perPage=1000&select=name
 Logger.log(url)
 
-//const departmenturl = dashboardDomain + '/bots/' + botID + getValidatedEndpoint(endpoints, 'Department for Category');
 Logger.log("Department URL: " + departmenturl);
 
 let departmentMap = {};
@@ -75,11 +74,6 @@ try {
 } catch (err) {
   Logger.log("⚠️ Error fetching department data: " + err.message);
 }
-
-
-//    var url = dashboardDomain + '/bots/' + botID + '/cm/category/list?child=departments&current=1&filter=%7B%22enabled%22%3Atrue%7D&perPage=10000';
-//    var url = dashboardDomain + '/bots/' + botID + '/cm/categories/settings?current=1&perPage=10000&filter=%7B%22isActive%22:true%7D';
-
 
     var headers = {
       'authority': 'staging-case-management-api.leena.ai',

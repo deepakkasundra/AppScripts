@@ -13,8 +13,7 @@ function getAPIsheetDetails() {
 
 function getApiEndpoints() {
   try {
-    // const sheetId = '1pyvvrHVXXcZIiR_2CWsFDj5IkvYXNB5h86rDQjZWaJs';
-    // const sheetName = 'API_EndPoints';
+
     
  const { sheetId, sheetName } = getAPIsheetDetails();  // Get sheet details
 
@@ -83,8 +82,6 @@ handleError(error);
 
 
 function validateAllEndpointFormats() {
-  // const sheetId = '1pyvvrHVXXcZIiR_2CWsFDj5IkvYXNB5h86rDQjZWaJs';
-  // const sheetName = 'API_EndPoints';
  const { sheetId, sheetName } = getAPIsheetDetails();  // Get sheet details
 
 
@@ -135,8 +132,6 @@ function validateAllEndpointFormats() {
 }
 
 function onEdit(e) {
-  // const sheetId = '1pyvvrHVXXcZIiR_2CWsFDj5IkvYXNB5h86rDQjZWaJs';  // Replace with your actual sheet ID
-  // const sheetName = 'API_EndPoints';  // Sheet name to monitor
 
 try{
  const { sheetId, sheetName } = getAPIsheetDetails();  // Get sheet details

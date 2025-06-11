@@ -76,7 +76,6 @@ const endpoints = getApiEndpoints();
 const loginUrl = ACL_Domain + getValidatedEndpoint(endpoints,'ACL Login'); 
 
 Logger.log(loginUrl);
- // const loginUrl = ACL_Domain + '/api/users/login';
   Logger.log(`🔐 Logging in: ${email}`);
 
   const loginResponse = UrlFetchApp.fetch(loginUrl, {

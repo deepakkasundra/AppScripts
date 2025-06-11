@@ -7,27 +7,25 @@
 	  // var qamenu = ui.createMenu('⚙️ QA Verification')
 		
     var qamenu = ui.createMenu('🕵️‍♂️ QA Verification')
-    .addSubMenu(ui.createMenu('Fetch Dashboard Data')
+//    .addSubMenu(ui.createMenu('Fetch Dashboard Data')
 		  .addItem('1. 🚨 Generate Token', 'loginAndStoreToken')
-		   
-		  )
+		  //	  )
 	// .addSeparator() // Add separator here
 		.addSubMenu(ui.createMenu('Fetch Ticketing Form')
 		  .addItem('1. Fetch Ticketing Form from UAT (New CM)', 'fetchFromUAT') //single file || Fetch_Ticketing_form_single_code
 		  .addItem('2. 🚨 Fetch Ticketing Form from PROD (New CM)','fetchFromPROD')  //single file || Fetch_Ticketing_form_single_code
-		  .addItem('3. 🚨 Fetch Ticketing Form from against Form ID PROD (MONO)', 'Fetch_ticketing_Form_Mono_CM') // 'Fetch_ticketing_Form_FromPROD')
-		  .addItem('4. 🚨 Fetch Ticketing Form name and URL from PROD (Mono CM)', 'MONO_fetchTicketingFormDataAndUrls_PROD')
-		  .addItem('5. Fetch Ticketing Form name and URL from UAT (Mono CM)', 'MONO_fetchTicketingFormDataAndUrls_UAT')
+		 // .addItem('3. 🚨 Fetch Ticketing Form from against Form ID PROD (MONO)', 'Fetch_ticketing_Form_Mono_CM') // 'Fetch_ticketing_Form_FromPROD')
+		  .addItem('3. 🚨 Fetch Ticketing Form name and URL from PROD (Mono CM)', 'MONO_fetchTicketingFormDataAndUrls_PROD')
+		  .addItem('4. Fetch Ticketing Form name and URL from UAT (Mono CM)', 'MONO_fetchTicketingFormDataAndUrls_UAT')
 		)
 
 		.addSubMenu(ui.createMenu('Download Ticketing Form')
 		  .addItem('1. Download Ticketing form NEW CM (UAT)','downloadLinksAndSaveToDrive_New_CM_UAT')
       .addItem('2. Download Ticketing form NEW CM (PROD)','downloadLinksAndSaveToDrive_New_CM_PROD')        // single file || Download_ticketing_form
 		  .addItem('3. Download Ticketing form MONO CM','downloadLinksAndSaveToDrive_Mono_CM') // single file || Download_ticketing_form
-			
-      )
+		)
 
-		  .addSubMenu(ui.createMenu('Validate Ticketing Forms')
+	  .addSubMenu(ui.createMenu('Validate Ticketing Forms')
 		  .addItem('1. Import All Forms and Validate All Forms', 'importXLSXFromLinksAndValidateAndUpdateStatus')
 		  .addItem('2. Check Single Ticketing Forms (Manually)', 'verify_ticketing_form_both_CM'))
 	
@@ -49,7 +47,6 @@
 		  .addItem('K) Ticketing forms vs. Requirement SLA with Param Sub category Optional ', 'fetchWithEmployeeCode_REQ_subcat_optional')
 		  .addItem('L) Ticketing forms vs. Requirement SLA without Param Sub category Optional ', 'fetchWithoutEmployeeCode_REQ_subcat_optional')
       )
-		  
 
 		 .addSubMenu(ui.createMenu('Assignee Config Comparison')
 			.addItem('A) Compare Requirment vs. UAT SLA with Param','UAT_vs_Requirement_Compare_WithParam')
@@ -88,6 +85,18 @@
 	   .addItem('A. Fetch Email Automation rules from UAT (New CM)', 'fetchEmailAutomationFromUAT')
 		  .addItem('B. 🚨 Fetch Email Automation rules from PROD (New CM)', 'fetchEmailAutomationFromPROD')   )
 
+		 .addSubMenu(ui.createMenu('Fetch Group')
+	   .addItem('A. Fetch Group from UAT (New CM)', 'fetchGroupsFromUAT')
+		  .addItem('B. 🚨 Fetch Group from PROD (New CM)', 'fetchGroupsFromPROD')   )
+
+		 .addSubMenu(ui.createMenu('Fetch Dashboard User')
+	   .addItem('A. Fetch Dashboard Users from UAT (New CM)', 'fetchUsersFromUAT')
+		  .addItem('B. 🚨 Fetch Dashboard Users from PROD (New CM)', 'fetchUsersFromPROD')   )
+
+	 .addSubMenu(ui.createMenu('Compare Group Member vs Dashboard User')
+	   .addItem('A. Compare Group vs Dashboard User UAT  (New CM)', 'compareGroupVsACLUsersUAT')
+		  .addItem('B. 🚨 CompareGroup vs Dashboard User PROD (New CM)', 'compareGroupVsACLUsersPROD')   )
+
 
 
 			 .addSubMenu(ui.createMenu('Category Master verification')  
@@ -115,6 +124,7 @@
 				.addItem('Bulk Replacement in Provided folder URL','replaceMultipleValuesInXLSX')
         .addItem('Conditional Replacement', 'Conditional_replaceMultipleValuesInXLSX')
         .addItem('Open JSON to CSV Converter', 'openJsonToCsvDialog')
+        .addItem('SLA Calculate','calculateAndWriteFormattedSLAsWithLog')
 	   )
 	 
 		 // .addSubMenu(ui.createMenu('📚Help')
@@ -154,6 +164,7 @@ var admintool = ui.createMenu('🛠️ Admin Tools')
 //var adimnMenu = ui.createMenu('Admin')
 //.addItem('Export Menu','menu_fileExport')
 //.addToUi();
+
 	}
 
 function showHelpDialog() {
@@ -271,20 +282,6 @@ function handleError(e) {
     SpreadsheetApp.getUi().alert("An unexpected error occurred while handling another error.");
   }
 }
-
-
-
-// // Standard Handle Error message
-// function handleError(e) {
-//   // Log the full error details including the stack trace
-//   Logger.log(`Error in function: ${getFunctionName(e.stack)}, Error: ${e.message}, Stack: ${e.stack}`);
-  
-//   // Create a detailed message to display in the Browser message box
-//   var detailedMessage = `An error occurred in the function: ${getFunctionName(e.stack)}.\n\nError Details: ${e.message}\n\nPlease contact QA Manager at qa_managers@leena.ai for assistance.\n\nStack Trace:\n${e.stack}`;
-  
-//   // Display the message to the user
-//   Browser.msgBox(detailedMessage, Browser.Buttons.OK);
-// }
 
 // Helper function to extract the function name from the stack trace
 function getFunctionName(stack) {

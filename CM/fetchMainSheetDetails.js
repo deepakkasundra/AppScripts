@@ -21,7 +21,7 @@ function getMainSheetData() {
         throw new Error(errorMsg);
       }
       const value = sheet.getRange(rowIndex, colIndex + 1).getValue();
-      // Logger.log(`📌 Value for "${headerName}": ${value}`);
+//      Logger.log(`📌 Value for "${headerName}": ${value}`);
       return value;
     };
 
